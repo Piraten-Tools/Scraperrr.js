@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/env node
 
 var argv = require('optimist')
     .usage('Usage: $0 -c [config] -o [output]')
