@@ -4,7 +4,6 @@
   "version": "0.7.0",
   "author": "Daniel Senff <public@danielsenff.de>",
   "contributors": [
-   
   ],
   "dependencies": {
     "mkdirp": "*",
@@ -16,10 +15,10 @@
     "request": "*",
     "prompt": "~0.2.3",
     "yamljs": ">= 0.1.4",
-    "schema": "*"
+    "schema": "*",
+    "json2csv": "~4.3.3"
   },
   "devDependencies": {
-  
   },
   "keywords": [
     "wiki",

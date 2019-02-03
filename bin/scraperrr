@@ -22,6 +22,11 @@ var argv = require('optimist')
         describe : 'Ouput file'
         //default : '/etc/passwd',
     })
+    .options('f', {
+        alias : 'format',
+        describe : 'Ouput format',
+        default : 'json',
+    })
     .argv
   , prompt = require('prompt')
   , colors = require('colors')
@@ -46,6 +51,7 @@ function main(configFile, outputFile) {
 
   config.debug = argv.v || argv.verbose || false;
   config.politeness = argv.p;
+  config.format = argv.f;
 
   var scraperrr = new Scraperrr.init(config, outputFile);
   scraperrr.run();
