@@ -27,6 +27,11 @@ var argv = require('optimist')
         describe : 'Ouput format',
         default : 'json',
     })
+    .options('s', {
+        alias : 'separate',
+        describe : 'Separate output files by type',
+        default : false,
+    })
     .argv
   , prompt = require('prompt')
   , colors = require('colors')
@@ -52,6 +57,7 @@ function main(configFile, outputFile) {
   config.debug = argv.v || argv.verbose || false;
   config.politeness = argv.p;
   config.format = argv.f;
+  config.separate = argv.s;
 
   var scraperrr = new Scraperrr.init(config, outputFile);
   scraperrr.run();
