@@ -40,7 +40,7 @@
         },
         {
           "name": "topic",
-          "regex": "<th style=\"text-align:left;\"><b>Antragsgruppe</b>\\n</th><td>([\\s\\S]*?)\\n</td></tr>"
+          "regex": "<th style=\"text-align:left;\"><b>Antragsgruppe</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>"
         },
         {
           "name": "text",
