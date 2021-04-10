@@ -32,6 +32,11 @@ var argv = require('optimist')
         describe : 'Separate output files by type',
         default : false,
     })
+    .options('ua', {
+        alias : 'useragent',
+        describe : 'The user agent to user for requests',
+        default : 'Scraperrr.js',
+    })
     .argv
   , prompt = require('prompt')
   , colors = require('colors')
@@ -58,6 +63,7 @@ function main(configFile, outputFile) {
   config.politeness = argv.p;
   config.format = argv.f;
   config.separate = argv.s;
+  config.useragent = argv.ua;
 
   var scraperrr = new Scraperrr.init(config, outputFile);
   scraperrr.run();
