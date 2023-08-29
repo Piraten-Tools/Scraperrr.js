@@ -1,0 +1,65 @@
+{
+  "start_page": "http://wiki.piratenpartei.de/NRW:Landesparteitag_2021.2/Antr%C3%A4ge",
+  "userAgent": "Piraten-Tools.de Scraperrr",
+  "outputFile": "/var/www/spickerrr/api/book/lptnrw212/motions.csv",
+  "event": "LPT NRW 21.2",
+  "contexts": [
+    {
+      "detail": true,
+      "detailUrl": "http://wiki\\.piratenpartei\\.de/NRW:Landesparteitag_2021\\.2/Antr%C3%A4ge/.*",
+      "data": [
+        {
+          "name": "Bezeichner",
+          "required": true,
+          "selector": ".motion_id"
+        },
+        {
+          "name": "Antragsteller/in",
+          "selector": ".motion_author"
+        },
+        {
+          "name": "Unterstützer/innen",
+          "required": false,
+          "value": "N/A"
+        },
+        {
+          "name": "Titel",
+          "required": true,
+          "selector": ".motion_title"
+        },
+        {
+          "name": "Text",
+          "selector": ".motion_text"
+        },
+        {
+          "name": "Begründung",
+          "selector": ".motion_remarks"
+        },
+        {
+          "name": "Sachgebiet",
+          "required": true,
+          "selector": ".motion_type"
+        },
+        {
+          "name": "Schlagwörter",
+          "regex": "<b>Schlagworte:</b>\\n</td><td style=\".*\">([\\S\\s]*?)\\n"
+        },
+        {
+          "name": "Antragsblock",
+          "required": false,
+          "value": "N/A"
+        },
+        {
+          "name": "Herkunft",
+          "required": false,
+          "value": "Wiki"
+        },
+        {
+          "name": "id",
+          "required": true,
+          "selector": ".motion_id"
+        }
+      ]
+    }
+  ]
+}

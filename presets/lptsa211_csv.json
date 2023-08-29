@@ -1,0 +1,70 @@
+{
+  "start_page": "https://wiki.piratenpartei.de/LSA:Landesverband/Wahlen/Landtagswahl_2021/Antr%C3%A4geWahlprogramm",
+  "event": "LTWLSA2021",
+  "userAgent": "Piraten-Tools.de Scraperrr",
+  "outputFile": "/var/www/spickerrr/api/book/lptsa211/motions",
+  "contexts": [
+    {
+      "start_page": "https://wiki.piratenpartei.de/LSA:Landesverband/Wahlen/Landtagswahl_2021/Antr%C3%A4geWahlprogramm",
+      "detail": false,
+      "regexMotion": "<h[3|4]>",
+      "data": [
+        {
+          "name": "Bezeichner",
+          "required": false,
+          "regex": "<span.*?class=\"mw-headline\".*?>(WPA [.0-9]*) [^<]*</span>"
+        },
+        {
+          "name": "Antragsteller/in",
+          "required": false,
+          "regex": "<p><b>Antragsteller</b>\\n</p>\\n<div style=\"margin-left:30px\">\\n<p>([\\s\\S]*?)\\n(?=</p>)"
+        },
+        {
+          "name": "Unterstützer/innen",
+          "required": false,
+          "value": "N/A"
+        },
+        {
+          "name": "Titel",
+          "required": true,
+          "regex": "<span.*?class=\"mw-headline\".*?>WPA [.0-9]* (?:- )?([^<]*)"
+        },
+        {
+          "name": "Text",
+          "required": true,
+          "regex": "<b>Text</b>\\n</p>\\n<div style=\"margin-left:30px\">\\n(.*?)(?=</div>)"
+        },
+        {
+          "name": "Begründung",
+          "required": false,
+          "regex": "<b>Begründung</b>.*?<div style=\"margin-left:30px\">\\n([\\s\\S]*?)(?=</div)"
+        },
+        {
+          "name": "Sachgebiet",
+          "required": false,
+          "value": "Wahlprogrammantrag"
+        },
+        {
+          "name": "Schlagwörter",
+          "required": true,
+          "value": "Wahlprogramm"
+        },
+        {
+          "name": "Antragsblock",
+          "required": false,
+          "value": "N/A"
+        },
+        {
+          "name": "Herkunft",
+          "required": false,
+          "value": "Wiki"
+        },
+        {
+          "name": "id",
+          "required": true,
+          "regex": "<span.*?class=\"mw-headline\".*?>(WPA [.0-9]*) [^<]*</span>"
+        }
+      ]
+    }
+  ]
+}
