@@ -6,12 +6,10 @@ var argv = require('optimist')
     .options('v', {
         alias : 'verbose',
         describe : 'Verbose debug print out'
-        //default : '/etc/passwd',
     })
     .options('p', {
         alias : 'politeness',
         describe : 'Miliseconds to wait between HTTP requests.',
-        default : '200'
     })
     .options('c', {
         alias : 'config',
@@ -25,17 +23,14 @@ var argv = require('optimist')
     .options('f', {
         alias : 'format',
         describe : 'Ouput format',
-        default : 'json',
     })
     .options('s', {
         alias : 'separate',
         describe : 'Separate output files by type',
-        default : false,
     })
     .options('ua', {
         alias : 'useragent',
         describe : 'The user agent to user for requests',
-        default : 'Scraperrr.js',
     })
     .argv
   , prompt = require('prompt')
@@ -45,9 +40,9 @@ var argv = require('optimist')
   , Scraperrr = require('../lib/scraperrr');
 
 
-main(argv.c, argv.o);
+main(argv.c);
 
-function main(configFile, outputFile) {
+function main(configFile) {
   var rawConfig = fs.readFileSync(configFile, 'utf8'),
       config = [];
   if(configFile.match(/\.yaml/)) {
@@ -60,11 +55,12 @@ function main(configFile, outputFile) {
   Scraperrr.validate(config, schema);
 
   config.debug = argv.v || argv.verbose || false;
-  config.politeness = argv.p;
-  config.format = argv.f;
-  config.separate = argv.s;
-  config.useragent = argv.ua;
+  config.politeness = argv.p || config.politeness || 200;
+  config.separate = argv.s || config.separate;
+  config.format = argv.f || config.format;
+  config.userAgent = argv.ua || config.userAgent;
+  config.outputFile = argv.o || config.outputFile;
 
-  var scraperrr = new Scraperrr.init(config, outputFile);
+  var scraperrr = new Scraperrr.init(config);
   scraperrr.run();
 }

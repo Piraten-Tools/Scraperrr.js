@@ -42,6 +42,32 @@
             "default": false,
             "description": "Remove HTML tags from all scraped fields."
         },
+        "separate": {
+            "type": "boolean",
+            "id": "separate",
+            "required": false,
+            "default": false,
+            "description": "If the results should be separated by type"
+        },
+        "format": {
+            "type": "string",
+            "id": "format",
+            "required": false,
+            "default": "json",
+            "description": "If the results should be separated by type"
+        },
+        "outputFile": {
+            "type": "string",
+            "id": "outputFile",
+            "required": false,
+            "description": "The output file to wich the results are written"
+        },
+        "userAgent": {
+            "type": "string",
+            "id": "userAgent",
+            "required": false,
+            "description": "The useragent to use for web requests"
+        },
 
         "contexts": {
             "type": "array",
