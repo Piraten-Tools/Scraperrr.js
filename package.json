@@ -1,9 +1,16 @@
 {
   "name": "scraperrr",
   "description": "Web crawler configured by JSON configurations defining what data fields to scrape from the visited websites using regular expressions or DOM selectors and how to export them as JSON",
-  "version": "0.7.0",
-  "author": "Daniel Senff <public@danielsenff.de>",
+  "version": "0.8.0",
+  "author": {
+    "name": "Daniel Senff",
+    "email": "public@danielsenff.de"
+  },
   "contributors": [
+    {
+      "name": "Daniel Jäger",
+      "url": "http://djaeger.info/"
+    },
   ],
   "dependencies": {
     "mkdirp": "*",
