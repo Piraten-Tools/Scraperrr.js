@@ -6,13 +6,13 @@
             "type": "string",
             "id": "start_page",
             "default": "",
-            "description": "Entry point of scraping the website."
+            "description": "Entry point of scraping the website"
         },
         "start_pages": {
             "type": "array",
             "id": "start_pages",
             "default": "",
-            "description": "Multiple entry point of scraping the website."
+            "description": "Multiple entry point of scraping the website"
         },
         "regexPortal": {
             "type": "string",
@@ -20,27 +20,26 @@
             "default": "",
             "description": "Regex by which we can detect the Antragsportal"
         },
-
         "event": {
             "type": "string",
             "id": "event",
             "default": "website",
             "optional": true,
-            "description": "Event name of the Antragsportal to scrape."
+            "description": "Event name of the Antragsportal to scrape"
         },
         "orderby": {
             "type": "string",
             "id": "orderby",
             "required": false,
             "default": "id",
-            "description": "Scraped results are ordered by this data field. Data field must be defined in context."
+            "description": "Scraped results are ordered by this data field. Data field must be defined in context"
         },
         "stripHTML": {
             "type": "boolean",
             "id": "stripHTML",
             "required": false,
             "default": false,
-            "description": "Remove HTML tags from all scraped fields."
+            "description": "Remove HTML tags from all scraped fields"
         },
         "separate": {
             "type": "boolean",
@@ -54,7 +53,7 @@
             "id": "format",
             "required": false,
             "default": "json",
-            "description": "If the results should be separated by type"
+            "description": "The format to be used to create the output file"
         },
         "outputFile": {
             "type": "string",
@@ -68,20 +67,27 @@
             "required": false,
             "description": "The useragent to use for web requests"
         },
+        "politeness": {
+            "type": "number",
+            "id": "politeness",
+            "required": false,
+            "default": 200,
+            "description": "Miliseconds to wait between HTTP requests"
+        },
 
         "contexts": {
             "type": "array",
             "required": true,
             "minItems": 1,
-            "description": "Set of rules by which to scrape given a URL schema.",
+            "description": "Set of rules by which to scrape given a URL schema",
             "items": [
-           		{
-           			"type": "object",
-           			"required": true,
-           			"properties":
-           				{
+              {
+                "type": "object",
+                "required": true,
+                "properties":
+                  {
                     "start_page":
-             					{
+                      {
                         "type": "string",
                         "id": "start_page",
                         "optional": false
@@ -170,9 +176,9 @@
                           }
                         ]
                       }
-                    }
+                  }
               }
-       			],
+       	    ],
             "additionalProperties": true
         }
     },

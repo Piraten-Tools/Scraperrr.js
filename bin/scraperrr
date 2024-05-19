@@ -18,7 +18,6 @@ var argv = require('optimist')
     .options('o', {
         alias : 'output',
         describe : 'Ouput file'
-        //default : '/etc/passwd',
     })
     .options('f', {
         alias : 'format',
@@ -55,7 +54,7 @@ function main(configFile) {
   Scraperrr.validate(config, schema);
 
   config.debug = argv.v || argv.verbose || false;
-  config.politeness = argv.p || config.politeness || 200;
+  config.politeness = argv.p || config.politeness;
   config.separate = argv.s || config.separate;
   config.format = argv.f || config.format;
   config.userAgent = argv.ua || config.userAgent;
