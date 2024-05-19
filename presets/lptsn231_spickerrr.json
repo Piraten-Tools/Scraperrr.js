@@ -1,0 +1,178 @@
+{
+  "start_pages": [
+    "https://wiki.piratenpartei.de/SN:Treffen/Landesparteitag/2023.1/Antragsportal/Satzungs%C3%A4nderungsantr%C3%A4ge",
+    "https://wiki.piratenpartei.de/SN:Treffen/Landesparteitag/2023.1/Antragsportal/Grundsatzprogrammantr%C3%A4ge",
+    "https://wiki.piratenpartei.de/SN:Treffen/Landesparteitag/2023.1/Antragsportal/Positionspapiere",
+    "https://wiki.piratenpartei.de/SN:Treffen/Landesparteitag/2023.1/Antragsportal/Sonstige_Antr%C3%A4ge"
+  ],
+  "event": "LPT SN 2023.1",
+  "userAgent": "Piraten-Tools.de Scraperrr",
+  "outputFile": "/var/www/spickerrr/api/book/lptsa231/motions",
+  "contexts":
+  [
+    {
+      "start_page": "https://wiki.piratenpartei.de/SN:Treffen/Landesparteitag/2023.1/Antragsportal/Satzungs%C3%A4nderungsantr%C3%A4ge",
+      "detail": false,
+      "regexContext": "Satzung",
+      "regexMotion": "<span class=\"mw-headline\"",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "(SÄA[0-9]*) - (.*)</span></h1",
+          "group": 1
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "(SÄA[0-9]*) - (.*)</span></h1",
+          "group": 2
+        },
+        {
+          "name": "author",
+          "regex": "Antragsteller:<\/b>\\n([\\s\\S\\n]*)\\n<\/p><p><b>Antragstext"
+          },
+        {
+          "name": "type",
+          "required": true,
+          "value": "Satzungsänderungsantrag"
+        },
+        {
+          "name": "topic",
+          "value": "Satzung"
+        },
+        {
+          "name": "text",
+          "regex": "Antragstext:<\/b>\\n([\\s\\S\\n]*)<p><b>Begründung"
+          },
+        {
+          "name": "remarks",
+          "regex": "Begründung:<\/b>\\n<\/p><p>([\\s\\S\\n]*)<\/p>\\n<h1"
+        }
+      ]
+    },
+    {
+      "start_page": "https://wiki.piratenpartei.de/SN:Treffen/Landesparteitag/2023.1/Antragsportal/Grundsatzprogrammantr%C3%A4ge",
+      "detail": false,
+      "regexContext": "Grundsatzprogramm",
+      "regexMotion": "<span class=\"mw-headline\"",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "([GA0-9]*) - (.*)</span></h1",
+          "group": 1
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "([GA0-9]*) - (.*)</span></h1",
+          "group": 2
+        },
+        {
+          "name": "author",
+          "regex": "Antragsteller:<\/b>\\n([\\s\\S\\n]*)\\n<\/p><p><b>Antragstext"
+          },
+        {
+          "name": "type",
+          "required": true,
+          "value": "Grundsatzprogrammantrag"
+        },
+        {
+          "name": "topic",
+          "value": "Grundsatzprogramm"
+        },
+        {
+          "name": "text",
+          "regex": "Antragstext:<\/b>\\n([\\s\\S\\n]*)<p><b>Begründung"
+          },
+        {
+          "name": "remarks",
+          "regex": "Begründung:<\/b>\\n<\/p><p>([\\s\\S\\n]*)<\/p>\\n<h1"
+        }
+      ]
+    },
+    {
+      "start_page": "https://wiki.piratenpartei.de/SN:Treffen/Landesparteitag/2023.1/Antragsportal/Positionspapiere",
+      "detail": false,
+      "regexContext": "Positionspapiere",
+      "regexMotion": "<span class=\"mw-headline\"",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "([PP0-9]*) - (.*)</span></h1",
+          "group": 1
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "([PP0-9]*) - (.*)</span></h1",
+          "group": 2
+        },
+        {
+          "name": "author",
+          "regex": "Antragsteller:<\/b>\\n([\\s\\S\\n]*)\\n<\/p><p><b>Antragstext"
+          },
+        {
+          "name": "type",
+          "required": true,
+          "value": "Positionspapier"
+        },
+        {
+          "name": "topic",
+          "value": "Positionspapiere"
+        },
+        {
+          "name": "text",
+          "regex": "Antragstext:<\/b>\\n([\\s\\S\\n]*)<p><b>Begründung"
+          },
+        {
+          "name": "remarks",
+          "regex": "Begründung:<\/b>\\n<\/p><p>([\\s\\S\\n]*)<\/p>\\n<h1"
+        }
+      ]
+    },
+    {
+      "start_page": "https://wiki.piratenpartei.de/SN:Treffen/Landesparteitag/2023.1/Antragsportal/Sonstige_Antr%C3%A4ge",
+      "detail": false,
+      "regexContext": "Sonstiges",
+      "regexMotion": "<span class=\"mw-headline\"",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "([SA0-9]*) - (.*)</span></h1",
+          "group": 1
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "([SA0-9]*) - (.*)</span></h1",
+          "group": 2
+        },
+        {
+          "name": "author",
+          "regex": "Antragsteller:<\/b>\\n([\\s\\S\\n]*)\\n<\/p><p><b>Antragstext"
+          },
+        {
+          "name": "type",
+          "required": true,
+          "value": "Sonstige Anträge"
+        },
+        {
+          "name": "topic",
+          "value": "Sonstiges"
+        },
+        {
+          "name": "text",
+          "regex": "Antragstext:<\/b>\\n([\\s\\S\\n]*)<p><b>Begründung"
+          },
+        {
+          "name": "remarks",
+          "regex": "Begründung:<\/b>\\n<\/p><p>([\\s\\S\\n]*)<\/p>\\n<h1"
+        }
+      ]
+    }
+  ]
+}
