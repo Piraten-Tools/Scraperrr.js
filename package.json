@@ -10,7 +10,7 @@
     {
       "name": "Daniel Jäger",
       "url": "http://djaeger.info/"
-    },
+    }
   ],
   "dependencies": {
     "mkdirp": "*",
